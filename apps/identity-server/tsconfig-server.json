@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "include": ["src/server/**/*.ts"],
+    "compilerOptions": {
+        "outDir": "./build",
+    //     "importsNotUsedAsValues": "preserve",
+    //     "experimentalDecorators": true,
+    //     "emitDecoratorMetadata": true
+    }
+}

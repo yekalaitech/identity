@@ -1,0 +1,13 @@
+{
+	"clients": [
+		{
+			"clientId": "<clientId>",
+			"name": "<name>",
+			"grantTypes": ["authorization_code"],
+			"responseTypes": ["code"],
+			"scopes": ["profile"],
+			"redirectUris": ["<url>"]
+		}
+	],
+	"users": [{ "userName": "<userName>", "password": "<password>" }]
+}

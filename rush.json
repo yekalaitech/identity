@@ -457,5 +457,18 @@
     //   "projectFolder": "tools/my-toolchain",
     //   "reviewCategory": "tools"
     // }
+    {
+      "packageName": "@yekalaitech/identity-server",
+      "projectFolder": "apps/identity-server"
+    },
+    {
+      "packageName": "@yekalaitech/identity-security",
+      "projectFolder": "libs/security"
+    },
+    {
+      "packageName": "@yekalaitech/svelte-adapter-node",
+      "projectFolder": "libs/svelete-adapter-node"
+    }                 
+    
   ]
 }
