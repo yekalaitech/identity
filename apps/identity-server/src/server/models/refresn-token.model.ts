@@ -1,22 +1,26 @@
-import typegoose from '@typegoose/typegoose';
+import typegoose, { mongoose, Severity } from '@typegoose/typegoose';
 
+const { Schema } = mongoose;
 const { modelOptions, prop } = typegoose;
 
 @modelOptions({
-  schemaOptions: {
-    collection: 'RefreshToken'
-  }
+	schemaOptions: {
+		collection: 'RefreshToken'
+	},
+  options: {
+		allowMixed: Severity.ALLOW
+	}
 })
 export class RefreshTokenModel {
-  @prop({index: true})
-  grantId: string;
+	@prop({ index: true })
+	grantId: string;
 
-  @prop()
-  data?: any;
+	@prop({ type: Schema.Types.Mixed })
+	data?: Map<string, any>;
 
-  @prop()
-  expiresAt?: Date;
+	@prop()
+	expiresAt?: Date;
 
-  @prop()
-  consumedAt?: Date;
+	@prop()
+	consumedAt?: Date;
 }

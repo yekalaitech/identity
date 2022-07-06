@@ -31,6 +31,8 @@ export class AuthorizationCodePayLoad {
   expiresWithSession!: boolean;
   @prop()
   consumed?: number;
+  @prop()
+  scope: string;
 }
 
 @modelOptions({
@@ -39,8 +41,6 @@ export class AuthorizationCodePayLoad {
   }
 })
 export class AuthorizationCodeModel {
-  @prop({index: true})
-  grantId: string;
 
   @prop()
   expiresAt?: Date;

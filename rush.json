@@ -458,6 +458,10 @@
     //   "reviewCategory": "tools"
     // }
     {
+      "packageName": "@yekalaitech/identity-admin",
+      "projectFolder": "apps/identity-admin"
+    },          
+    {
       "packageName": "@yekalaitech/identity-server",
       "projectFolder": "apps/identity-server"
     },
@@ -468,7 +472,7 @@
     {
       "packageName": "@yekalaitech/svelte-adapter-node",
       "projectFolder": "libs/svelete-adapter-node"
-    }                 
+    }
     
   ]
 }

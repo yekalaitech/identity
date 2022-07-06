@@ -1,19 +1,23 @@
-import typegoose from '@typegoose/typegoose';
+import typegoose, { mongoose, Severity } from '@typegoose/typegoose';
 
+const { Schema } = mongoose;
 const { modelOptions, prop } = typegoose;
 
 @modelOptions({
-  schemaOptions: {
-    collection: 'RegistrationAccessToken'
-  }
+	schemaOptions: {
+		collection: 'RegistrationAccessToken'
+	},
+  options: {
+		allowMixed: Severity.ALLOW
+	}
 })
 export class RegistrationAccessTokenModel {
-  @prop()
-  data?: any;
+	@prop({ type: Schema.Types.Mixed })
+	data?: Map<string, any>;
 
-  @prop()
-  expiresAt?: Date;
+	@prop()
+	expiresAt?: Date;
 
-  @prop()
-  consumedAt?: Date;
+	@prop()
+	consumedAt?: Date;
 }

@@ -1,5 +1,5 @@
 
-import { All, Body, Controller, Inject, Next, Post, Req, Res } from '@nestjs/common';
+import { All, Body, Controller, Get, Inject, Next, Post, Req, Res } from '@nestjs/common';
 import type { NextFunction, Request, Response } from 'express';
 import type { Provider } from 'oidc-provider';
 
@@ -13,23 +13,22 @@ export class OIDCController {
 		private readonly userService: UserService
 	) {}
 
-	@Post('interaction/:uid/login')
-	async post(
-		@Body() body: LoginRequest,
-		@Req() req: Request,
-		@Res() res: Response,
-		@Next() next: NextFunction
-	) {
-		// req.headers.cookie =
-		// 	req.headers.cookie || req.headers['set-cookie'] ? req.headers['set-cookie'].join(':') : '';
-		const user = await this.userService.getUser(body.userName, body.password);
-		await this.provider.interactionFinished(req, res, {
-			login: {
-				accountId: user._id.toString()
-			}
-		}, { mergeWithLastSubmission: false });
+	// @Get('/me')
+	// async post(
+	// 	@Req() req: Request,
+	// 	@Res() res: Response,
+	// 	@Next() next: NextFunction
+	// ) {
+	// 	// req.headers.cookie =
+	// 	// 	req.headers.cookie || req.headers['set-cookie'] ? req.headers['set-cookie'].join(':') : '';
+	// 	const user = await this.userService.getUser(body.userName, body.password);
+	// 	await this.provider.interactionFinished(req, res, {
+	// 		login: {
+	// 			accountId: user._id.toString()
+	// 		}
+	// 	}, { mergeWithLastSubmission: false });
 
-	}
+	// }
 
 	@All('/*')
 	async renderUI(@Req() req: Request, @Res() res: Response, @Next() next: NextFunction) {

@@ -1,17 +1,16 @@
-import typegoose from "@typegoose/typegoose";
-import mongoose from 'mongoose';
+import typegoose, { mongoose } from '@typegoose/typegoose';
 
-const { modelOptions, prop } = typegoose; 
+const { modelOptions, prop } = typegoose;
 
 @modelOptions({
-  schemaOptions: {
-    collection: "ApiResource"
-  }
+	schemaOptions: {
+		collection: 'ApiResource'
+	}
 })
 export class ApiResourceModel {
-  @prop({unique: true, required: true})
-  name!: string;
+	@prop({ unique: true, required: true })
+	name!: string;
 
-  @prop({default: []})
-  claims?: mongoose.Types.Array<string>
+	@prop({ default: [], type: String })
+	claims?: string[];
 }

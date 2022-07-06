@@ -9,7 +9,13 @@ const { modelOptions, prop } = typegoose;
 })
 export class RelayDetectionModel {
   @prop()
-  data?: any;
+  jti?: string;
+  @prop()
+  exp!: number;
+  @prop()
+  iat!: number;
+  @prop()
+  kind!: string;
 
   @prop()
   expiresAt?: Date;
