@@ -1,11 +1,12 @@
-import {
-  UserManager,
+import type {
+  UserManager as UserManagerType,
   UserManagerSettings,
   User,
-  WebStorageStateStore,
-  InMemoryWebStorage,
   Profile,
 } from 'oidc-client';
+
+import pkg from 'oidc-client';
+const { UserManager, WebStorageStateStore, InMemoryWebStorage } = pkg;
 
 import { StorageService } from './storage.service';
 
@@ -20,7 +21,7 @@ export interface AuthConfig {
 
 export class AuthService {
   private storageService = new StorageService();
-  private manager: UserManager;
+  private manager: UserManagerType;
   public static __instance: AuthService;
   // tslint:disable-next-line: variable-name
   private _user: User = null;

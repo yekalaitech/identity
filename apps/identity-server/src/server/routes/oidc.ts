@@ -39,7 +39,7 @@ const routeProvider = (app: Application, provider: Provider, render: RenderFunct
 				rawBody: locals ? JSON.stringify(locals) : undefined
 			});
 			if (rendered && rendered.status !== 404) {
-				res.writeHead(rendered.status, rendered.headers);
+				res.writeHead(rendered.status, rendered.headers);				
 				if (rendered.body) {
 					res.write(rendered.body);
 				}

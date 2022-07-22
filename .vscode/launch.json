@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
+      "type": "node",
       "request": "launch",
       "name": "Launch Identity Server",
       "skipFiles": [
@@ -16,7 +16,8 @@
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ],
-      "sourceMaps": true
+      "sourceMaps": true,
+      "runtimeVersion": "18.6.0"
     }
   ]
 }

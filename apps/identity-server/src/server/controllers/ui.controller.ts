@@ -1,5 +1,5 @@
 import { All, Controller, Next, Req, Res } from '@nestjs/common';
-import type { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 
 import { RendererService } from '../services/renderer.service.js';
 
@@ -15,7 +15,7 @@ export class UIController {
 			if (rendered.body) {
 				res.write(rendered.body);
 			}
-			res.end();
+			res.end();			
 			return rendered.body;
 		}
 		next();

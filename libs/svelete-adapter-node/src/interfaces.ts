@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import type { IncomingHttpHeaders } from 'http';
+import type { IncomingHttpHeaders, IncomingMessage } from 'http';
 
 import type { BuildOptions } from 'esbuild';
-import type { Request, RequestHandler } from 'express';
+import type { RequestHandler } from 'express';
 
 export type EnvOptions = {
 	readonly path?: string;
@@ -37,12 +37,12 @@ export type RenderData = {
 export type RenderResult = {
 	status: number;
 	headers: any;
-	body?: any;
+	body?: string;
 };
 
 export type RenderFunction = (data: RenderData) => Promise<RenderResult>;
 
 export type UIApp = {
-	renderRequest: (req: Request) => Promise<RenderResult>;
-	renderData: (data: RenderData) => Promise<RenderResult>;
+	renderRequest: (req: IncomingMessage) => Promise<RenderResult>;
+	renderData: (incomingMessage: IncomingMessage, path: string) => Promise<RenderResult>;
 };

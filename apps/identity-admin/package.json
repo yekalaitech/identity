@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "svelte-kit build",
+    "build": "vite build",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "dev": "svelte-kit dev --port 3011 --https --host",
+    "dev": "vite dev --host",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
     "lint": "prettier --ignore-path .gitignore  --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "preview": "svelte-kit preview"
@@ -31,8 +31,9 @@
     "svelte": "^3.34.3",
     "svelte-check": "^2.2.11",
     "svelte-preprocess": "^4.10.1",
-    "tailwindcss": "^3.0.8",
+    "tailwindcss": "^3.1.6",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vite": "^3.0.2"
   }
 }

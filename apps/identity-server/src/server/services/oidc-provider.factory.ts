@@ -23,13 +23,7 @@ export class OidcProviderFactory {
         ...oidcConfiguration,
         renderError: async (ctx, out, error) => {
           const parsed = new URL(ctx.req.url || '', `https://${ctx.req.headers.host}`);
-          const rendered = await this.renderService.renderData({
-            method: ctx.req.method,
-            headers: ctx.req.headers, // TODO: what about repeated headers, i.e. string[]
-            path: '/error',
-            query: parsed.searchParams,
-            rawBody: JSON.stringify({props: {errorData: out}})
-          });
+          const rendered = await this.renderService.renderData(ctx.req, `${ctx.protocol}://${ctx.host}/error`);
           console.log(out);
           if (rendered) {
             ctx.type = 'html';

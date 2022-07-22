@@ -12,7 +12,7 @@ export default [
 			format: 'esm'
 		},
 		plugins: [nodeResolve(), commonjs(), json()],
-		external: ['APP', 'MANIFEST', ...require('module').builtinModules]
+		external: ['SERVER', 'MANIFEST', 'ENV_PREFIX', ...require('module').builtinModules]
 	},
 	{
 		input: 'src/shims.js',

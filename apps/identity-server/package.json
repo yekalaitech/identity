@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "npm run lint && rm -rf .svelte-kit && svelte-kit build && nest build -p tsconfig-server.json",
+    "build": "npm run lint && rm -rf .svelte-kit && vite build && nest build -p tsconfig-server.json",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "dev": "svelte-kit dev",
@@ -15,9 +15,9 @@
     "start": "node ./build/main.js"
   },
   "dependencies": {
-    "@nestjs/common": "^8.2.4",
-    "@nestjs/core": "^8.2.4",
-    "@nestjs/platform-express": "^8.2.4",
+    "@nestjs/common": "^8.4.7",
+    "@nestjs/core": "^8.4.7",
+    "@nestjs/platform-express": "^8.4.7",
     "@nestjs/serve-static": "^2.2.2",
     "@typegoose/typegoose": "~9.4.0",
     "@yekalaitech/identity-security": "~0.0.1",
@@ -37,6 +37,7 @@
     "@typescript-eslint/parser": "^5.8.1",
     "@yekalaitech/svelte-adapter-node": "0.0.1",
     "autoprefixer": "^10.4.1",
+    "browserslist": "4.21.2",
     "cssnano": "^5.0.14",
     "dotenv": "~10.0.0",
     "esbuild": "~0.14.10",
@@ -50,8 +51,9 @@
     "svelte": "^3.44.3",
     "svelte-check": "^2.2.11",
     "svelte-preprocess": "^4.10.1",
-    "tailwindcss": "^3.0.8",
+    "tailwindcss": "^3.1.6",
     "tslib": "^2.3.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vite": "^3.0.2"
   }
 }

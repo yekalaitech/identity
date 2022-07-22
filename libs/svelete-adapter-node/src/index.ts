@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import {
 	createReadStream,
 	createWriteStream,
@@ -24,7 +23,7 @@ const files = fileURLToPath(new URL('./files', import.meta.url));
 export default function ({
 	out = 'build',
 	precompress = undefined,
-	env: { path: path_env = 'SOCKET_PATH', host: host_env = 'HOST', port: port_env = 'PORT' } = {}
+	envPrefix = ''
 } = {}) {
 	return {
 		name: '@yekalaitech/svelte-adapter-node',
@@ -34,10 +33,9 @@ export default function ({
 			builder.log.minor('Copying assets');
 			builder.writeClient(`${out}/client`);
 			builder.writeServer(`${out}/server`);
-			builder.writeStatic(`${out}/static`);
 
 			builder.log.minor('Prerendering static pages');
-			await builder.prerender({
+			await builder.writePrerendered({
 				dest: `${out}/prerendered`
 			});
 
@@ -52,14 +50,13 @@ export default function ({
 
 			builder.copy(files, out, {
 				replace: {
-					APP: './server/app.js',
+					SERVER: './server/index.js',
 					MANIFEST: './manifest.js',
-					PATH_ENV: JSON.stringify(path_env),
-					HOST_ENV: JSON.stringify(host_env),
-					PORT_ENV: JSON.stringify(port_env)
+					ENV_PREFIX: JSON.stringify(envPrefix)
 				}
 			});
 
+			// This is needed so that ui-app.js can referenced in the server
 			const bundleOptions: BuildOptions = {
 				entryPoints: [join(out, 'app.js')],
 				outfile: join(out, 'ui-app.js'),
